@@ -25,7 +25,7 @@ namespace StoreAppPhase2.Controllers
         [HttpPost()]
         public IActionResult PostSellingData(SellingEM sellingEM)
         {
-            string Status = "Active";
+            
             var SellingEM = _IDataRepository.PostSellingEMData(sellingEM.InvoiceID, sellingEM.IdEM, sellingEM.StatusSellingEM);
             return Ok(SellingEM);
 
@@ -59,9 +59,9 @@ namespace StoreAppPhase2.Controllers
         }
         [Route("UpdateSelling")]
         [HttpPut()]
-        public IActionResult PutSellingData(int sellingEMID, int invoiceID, int IdEM, string statusSellingEM)
+        public IActionResult PutSellingData(SellingEM sellingEM)
         {
-            var SellingEM = _IDataRepository.PutSellingEMData(sellingEMID, invoiceID, IdEM, statusSellingEM);
+            var SellingEM = _IDataRepository.PutSellingEMData(sellingEM.SellingEMID, sellingEM.InvoiceID, sellingEM.IdEM, sellingEM.StatusSellingEM);
             return Ok(SellingEM);
 
         }

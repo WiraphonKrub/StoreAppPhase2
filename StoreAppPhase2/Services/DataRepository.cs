@@ -47,7 +47,7 @@ namespace StoreAppPhase2.Services
         //End Get Selling
 
         //Start Post Selling 
-        public bool PostSellingEMData(int invoiceID, int IdEM, string statusSellingEM)
+        public bool PostSellingEMData(int invoiceID, int IdEM, string? statusSellingEM)
         {
 
             var SellingEMList = new List<SellingEM>();
@@ -109,7 +109,7 @@ namespace StoreAppPhase2.Services
         //End Delete Selling
 
         //Start Update Selling
-        public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string statusSellingEM)
+        public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string? statusSellingEM)
         {
 
             // Create new entities from Entities

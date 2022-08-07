@@ -16,9 +16,9 @@ namespace StoreAppPhase2.Services
 
         IEnumerable<SellingEM> DeleteSellingEMData(int SellingEMID);
 
-        public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string statusSellingEM);
+        public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string? statusSellingEM);
 
-        public bool PostSellingEMData(int invoiceID, int IdEM, string statusSellingEM);
+        public bool PostSellingEMData(int invoiceID, int IdEM, string? statusSellingEM);
     }
 }
 
