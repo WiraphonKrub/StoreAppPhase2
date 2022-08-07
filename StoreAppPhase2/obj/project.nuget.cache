@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "7RjB50SJ5jl352zynQEJMNpCKFyNwIeCE1Ms0kPvImnymRfOwoePE/kTBzIsIMAYPv8/IvED7Dn6cLLC4m1lHw==",
+  "success": true,
+  "projectFilePath": "/Volumes/DataStore/AppStore/StoreAppPhase2/New/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2.csproj",
+  "expectedPackageFiles": [
+    "/Users/wiraphon/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/wiraphon/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/wiraphon/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/wiraphon/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/wiraphon/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/wiraphon/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
