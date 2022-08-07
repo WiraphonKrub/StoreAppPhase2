@@ -23,10 +23,10 @@ namespace StoreAppPhase2.Controllers
 
         [Route("InsertSelling")]
         [HttpPost()]
-        public IActionResult PostSellingData(int invoiceID,int IdEM)
+        public IActionResult PostSellingData(SellingEM sellingEM)
         {
             string Status = "Active";
-            var SellingEM = _IDataRepository.PostSellingEMData(invoiceID, IdEM, Status);
+            var SellingEM = _IDataRepository.PostSellingEMData(sellingEM.InvoiceID, sellingEM.IdEM, sellingEM.StatusSellingEM);
             return Ok(SellingEM);
 
         }

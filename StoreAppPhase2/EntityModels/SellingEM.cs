@@ -10,10 +10,10 @@ namespace StoreAppPhase2.EntityModels
         [Key]
         public int SellingEMID { get; set; }
 		public int InvoiceID { get; set; }
-        public string StatusSellingEM { get; set; }
+        public string? StatusSellingEM { get; set; }
 
         [ForeignKey("IdEM")]
-        public Employees employees { get; set; }
+        public Employees? employees { get; set; }
         public int IdEM { get; set; }
 
     }

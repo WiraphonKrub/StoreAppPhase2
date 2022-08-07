@@ -18,7 +18,7 @@ namespace StoreAppPhase2.Services
 
         public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string statusSellingEM);
 
-        public bool PostSellingEMData( int invoiceID, int IdEM, string statusSellingEM);
+        public bool PostSellingEMData(int invoiceID, int IdEM, string statusSellingEM);
     }
 }
 
