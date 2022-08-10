@@ -23,10 +23,10 @@ namespace StoreAppPhase2.Controllers
 
         [Route("InsertSelling")]
         [HttpPost()]
-        public IActionResult PostSellingData(SellingEM sellingEM)
+        public IActionResult PostSellingData(SaleInvoice saleInvoice)
         {
             
-            var SellingEM = _IDataRepository.PostSellingEMData(sellingEM.InvoiceID, sellingEM.IdEM, sellingEM.StatusSellingEM);
+            var SellingEM = _IDataRepository.PostSellingEMData(saleInvoice.InvoiceNo, saleInvoice.IdEM, saleInvoice.StatusItemID);
             return Ok(SellingEM);
 
         }
@@ -59,9 +59,9 @@ namespace StoreAppPhase2.Controllers
         }
         [Route("UpdateSelling")]
         [HttpPut()]
-        public IActionResult PutSellingData(SellingEM sellingEM)
+        public IActionResult PutSellingData(SaleInvoice saleInvoice)
         {
-            var SellingEM = _IDataRepository.PutSellingEMData(sellingEM.SellingEMID, sellingEM.InvoiceID, sellingEM.IdEM, sellingEM.StatusSellingEM);
+            var SellingEM = _IDataRepository.PutSellingEMData(saleInvoice.SaleInvoiceID, saleInvoice.InvoiceNo, saleInvoice.IdEM, saleInvoice.StatusItemID);
             return Ok(SellingEM);
 
         }

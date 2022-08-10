@@ -2530,11 +2530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/DataStore/AppStore/StoreAppPhase2/New/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2.csproj",
+      "projectUniqueName": "/Volumes/DataStore/AppStore/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2.csproj",
       "projectName": "StoreAppPhase2",
-      "projectPath": "/Volumes/DataStore/AppStore/StoreAppPhase2/New/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2.csproj",
+      "projectPath": "/Volumes/DataStore/AppStore/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2.csproj",
       "packagesPath": "/Users/wiraphon/.nuget/packages/",
-      "outputPath": "/Volumes/DataStore/AppStore/StoreAppPhase2/New/StoreAppPhase2/StoreAppPhase2/obj/",
+      "outputPath": "/Volumes/DataStore/AppStore/StoreAppPhase2/StoreAppPhase2/StoreAppPhase2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/wiraphon/.nuget/NuGet/NuGet.Config"

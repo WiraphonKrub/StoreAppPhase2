@@ -11,8 +11,8 @@ using StoreAppPhase2.DbContexts;
 namespace StoreAppPhase2.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220806044558_UpdateSelling")]
-    partial class UpdateSelling
+    [Migration("20220810102329_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,21 @@ namespace StoreAppPhase2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("StoreAppPhase2.Entities.Employees", b =>
+            modelBuilder.Entity("StoreAppPhase2.Entities.StatusItem", b =>
+                {
+                    b.Property<string>("StatusItemID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("StatusItemName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("StatusItemID");
+
+                    b.ToTable("StatusItems");
+                });
+
+            modelBuilder.Entity("StoreAppPhase2.EntityModels.EmployeesData", b =>
                 {
                     b.Property<int>("IdEm")
                         .ValueGeneratedOnAdd()
@@ -32,17 +46,14 @@ namespace StoreAppPhase2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEm"), 1L, 1);
 
                     b.Property<string>("AddressEm")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("FirstNameEm")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastNameEm")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -55,48 +66,60 @@ namespace StoreAppPhase2.Migrations
 
                     b.HasKey("IdEm");
 
-                    b.ToTable("Employees");
+                    b.ToTable("EmployeesDatas");
                 });
 
-            modelBuilder.Entity("StoreAppPhase2.EntityModels.SellingEM", b =>
+            modelBuilder.Entity("StoreAppPhase2.EntityModels.SaleInvoice", b =>
                 {
-                    b.Property<int>("SellingEMID")
+                    b.Property<int>("SaleInvoiceID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SellingEMID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SaleInvoiceID"), 1L, 1);
 
                     b.Property<int>("IdEM")
                         .HasColumnType("int");
 
-                    b.Property<int>("InvoiceID")
+                    b.Property<int>("InvoiceNo")
                         .HasColumnType("int");
 
-                    b.Property<string>("StatusSellingEM")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("StatusItemID")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("SellingEMID");
+                    b.HasKey("SaleInvoiceID");
 
                     b.HasIndex("IdEM");
 
-                    b.ToTable("SellingEM");
+                    b.HasIndex("StatusItemID");
+
+                    b.ToTable("SaleInvoices");
                 });
 
-            modelBuilder.Entity("StoreAppPhase2.EntityModels.SellingEM", b =>
+            modelBuilder.Entity("StoreAppPhase2.EntityModels.SaleInvoice", b =>
                 {
-                    b.HasOne("StoreAppPhase2.Entities.Employees", "employees")
-                        .WithMany("SellingEMs")
+                    b.HasOne("StoreAppPhase2.EntityModels.EmployeesData", "employeesData")
+                        .WithMany("saleInvoices")
                         .HasForeignKey("IdEM")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("employees");
+                    b.HasOne("StoreAppPhase2.Entities.StatusItem", "statusItem")
+                        .WithMany("saleInvoices")
+                        .HasForeignKey("StatusItemID");
+
+                    b.Navigation("employeesData");
+
+                    b.Navigation("statusItem");
                 });
 
-            modelBuilder.Entity("StoreAppPhase2.Entities.Employees", b =>
+            modelBuilder.Entity("StoreAppPhase2.Entities.StatusItem", b =>
                 {
-                    b.Navigation("SellingEMs");
+                    b.Navigation("saleInvoices");
+                });
+
+            modelBuilder.Entity("StoreAppPhase2.EntityModels.EmployeesData", b =>
+                {
+                    b.Navigation("saleInvoices");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,14 +7,14 @@ namespace StoreAppPhase2.Services
 	public interface IDataReposity
 	{
 
-        IEnumerable<Employees> GetEmployees();
+        IEnumerable<EmployeesData> GetEmployees();
 
         //Salling
-        IEnumerable<SellingEM> GetSellingEMDatas();
+        IEnumerable<SaleInvoice> GetSellingEMDatas();
 
-        IEnumerable<SellingEM> GetSellingEMData(int SellingEMID);
+        IEnumerable<SaleInvoice> GetSellingEMData(int SellingEMID);
 
-        IEnumerable<SellingEM> DeleteSellingEMData(int SellingEMID);
+        IEnumerable<SaleInvoice> DeleteSellingEMData(int SellingEMID);
 
         public bool PutSellingEMData(int sellingEMID, int invoiceID, int IdEM, string? statusSellingEM);
 

@@ -5,15 +5,17 @@ using StoreAppPhase2.EntityModels;
 
 namespace StoreAppPhase2.DbContexts
 {
-	public class DataContext : DbContext
-	{
-		public DataContext(DbContextOptions<DataContext> options)
+    public class DataContext : DbContext
+    {
+        public DataContext(DbContextOptions<DataContext> options)
               : base(options)
         {
-		}
+        }
 
-        public DbSet<Employees> Employees { get; set; }
-        public DbSet<SellingEM> SellingEM { get; set; }
+        public DbSet<EmployeesData> EmployeesDatas { get; set; }
+        public DbSet<SaleInvoice> SaleInvoices { get; set; }
+        public DbSet<StatusItem> StatusItems { get; set; }
+
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
 
