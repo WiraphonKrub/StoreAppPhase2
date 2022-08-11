@@ -13,8 +13,8 @@ namespace StoreAppPhase2.DbContexts
         }
 
         public DbSet<EmployeesData> EmployeesDatas { get; set; }
-        public DbSet<SaleInvoice> SaleInvoices { get; set; }
-        public DbSet<StatusItem> StatusItems { get; set; }
+        public DbSet<SaleInvoices> SaleInvoices { get; set; }
+        public DbSet<StatusItems> StatusItems { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
@@ -22,4 +22,3 @@ namespace StoreAppPhase2.DbContexts
         //}
     }
 }
-

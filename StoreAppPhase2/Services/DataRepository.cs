@@ -33,33 +33,33 @@ namespace StoreAppPhase2.Services
 //-----------------Start Selling Interface
 
         //Start Get Selling All
-        public IEnumerable<SaleInvoice> GetSellingEMDatas()
+        public IEnumerable<SaleInvoices> GetSellingEMDatas()
         {
             return _context.SaleInvoices.ToList();
         }
         //End Get Selling All
     
         //Start Get Selling
-        public IEnumerable<SaleInvoice> GetSellingEMData(int SaleInvoiceID)
+        public IEnumerable<SaleInvoices> GetSellingEMData(int SaleInvoiceID)
         {
             return _context.SaleInvoices.Where(x=>x.SaleInvoiceID == SaleInvoiceID);
         }
         //End Get Selling
 
         //Start Post Selling 
-        public bool PostSellingEMData(int InvoiceNo, int IdEM, string? StatusItemID)
+        public bool PostSellingEMData(SaleInvoices saleInvoices)
         {
 
-            var SellingEMList = new List<SaleInvoice>();
+            var SellingEMList = new List<SaleInvoices>();
 
             try {
 
-                var SellingEMs = new SaleInvoice
+                var SellingEMs = new SaleInvoices
                 {
                     //SellingEMID = SellingEMID,
-                    InvoiceNo  = InvoiceNo,
-                    IdEM = IdEM,
-                    StatusItemID = StatusItemID
+                    InvoiceNo  = saleInvoices.InvoiceNo,
+                    IdEM = saleInvoices.IdEM,
+                    StatusItemID = saleInvoices.StatusItemID
                 };
 
             SellingEMList.Add(SellingEMs);
@@ -84,7 +84,7 @@ namespace StoreAppPhase2.Services
 
 
         //Start Delete Selling
-        public IEnumerable<SaleInvoice> DeleteSellingEMData(int Id)
+        public IEnumerable<SaleInvoices> DeleteSellingEMData(int Id)
         {
             // Create new entities from Entities
             using (_context)
@@ -109,20 +109,20 @@ namespace StoreAppPhase2.Services
         //End Delete Selling
 
         //Start Update Selling
-        public bool PutSellingEMData(int SaleInvoiceID, int invoiceID, int IdEM, string? statusSellingEM)
+        public bool PutSellingEMData(SaleInvoices saleInvoice)
         {
 
             // Create new entities from Entities
             using (_context)
             {
                 // Update Statement
-                var update = _context.SaleInvoices.Where(o => o.SaleInvoiceID == SaleInvoiceID).ToList();
+                var update = _context.SaleInvoices.Where(o => o.SaleInvoiceID == saleInvoice.SaleInvoiceID).ToList();
                 if (update.Count() > 0)
                 {
                     // Loop update
-                    update.ForEach(o => o.InvoiceNo = invoiceID);
-                    update.ForEach(o => o.IdEM = IdEM);
-                    update.ForEach(o => o.StatusItemID = statusSellingEM);
+                    update.ForEach(o => o.InvoiceNo = saleInvoice.InvoiceNo);
+                    update.ForEach(o => o.IdEM = saleInvoice.IdEM);
+                    update.ForEach(o => o.StatusItemID = saleInvoice.StatusItemID);
                     _context.SaveChanges();
                 }
                 else

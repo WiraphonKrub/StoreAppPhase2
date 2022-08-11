@@ -29,7 +29,8 @@ namespace StoreAppPhase2.Migrations
                 name: "StatusItems",
                 columns: table => new
                 {
-                    StatusItemID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StatusItemID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     StatusItemName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
@@ -44,7 +45,7 @@ namespace StoreAppPhase2.Migrations
                     SaleInvoiceID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InvoiceNo = table.Column<int>(type: "int", nullable: false),
-                    StatusItemID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    StatusItemID = table.Column<int>(type: "int", nullable: false),
                     IdEM = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -60,7 +61,8 @@ namespace StoreAppPhase2.Migrations
                         name: "FK_SaleInvoices_StatusItems_StatusItemID",
                         column: x => x.StatusItemID,
                         principalTable: "StatusItems",
-                        principalColumn: "StatusItemID");
+                        principalColumn: "StatusItemID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

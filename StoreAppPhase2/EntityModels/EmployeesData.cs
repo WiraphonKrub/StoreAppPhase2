@@ -19,8 +19,8 @@ namespace StoreAppPhase2.EntityModels
         [MaxLength(15)]
         public int RangeWorkingEm { get; set; }
 
-        public ICollection<SaleInvoice> saleInvoices { get; set; }
-               = new List<SaleInvoice>();
+        public ICollection<SaleInvoices> saleInvoices { get; set; }
+               = new List<SaleInvoices>();
     }
 }
 

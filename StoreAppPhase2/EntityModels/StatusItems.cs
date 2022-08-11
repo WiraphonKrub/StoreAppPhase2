@@ -6,15 +6,15 @@ using StoreAppPhase2.EntityModels;
 
 namespace StoreAppPhase2.Entities;
 
-public class StatusItem
-{ 
+public class StatusItems
+{
 
     [Key]
-    public string? StatusItemID { get; set; }
+    public int StatusItemID { get; set; }
     [MaxLength(50)]
     public string? StatusItemName { get; set; }
-   
 
-    public ICollection<SaleInvoice> saleInvoices { get; set; }
-           = new List<SaleInvoice>();
+
+    public ICollection<SaleInvoices> saleInvoices { get; set; }
+           = new List<SaleInvoices>();
 }
