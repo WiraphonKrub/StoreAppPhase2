@@ -19,6 +19,9 @@ namespace StoreAppPhase2.EntityModels
         public EmployeesData? employeesData { get; set; }
         public int IdEM { get; set; }
 
+
+        public ICollection<BookingServices> BookingServices { get; set; }
+           = new List<BookingServices>();
     }
 }
 

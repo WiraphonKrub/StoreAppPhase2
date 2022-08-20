@@ -21,6 +21,9 @@ namespace StoreAppPhase2.EntityModels
 
         public ICollection<SaleInvoices> saleInvoices { get; set; }
                = new List<SaleInvoices>();
+
+        public ICollection<BookingServices> BookingServices { get; set; }
+        = new List<BookingServices>();
     }
 }
 
