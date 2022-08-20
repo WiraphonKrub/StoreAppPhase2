@@ -12,7 +12,7 @@ namespace StoreAppPhase2.EntityModels
         [MaxLength(50)]
         public string? BookerName { get; set; }
         public DateTime BookingDate { get; set; }
-        public int ItemID { get; set; }
+     
         public int BookingPrices { get; set; }
         public DateTime DueDate { get; set; }
 
