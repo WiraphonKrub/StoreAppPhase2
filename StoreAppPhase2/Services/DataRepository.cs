@@ -40,7 +40,7 @@ namespace StoreAppPhase2.Services
 
                 var BookingEMs = new BookingServices
                 {
-                    //SellingEMID = SellingEMID,          
+                    //SaleEMID = SaleEMID,          
                     //IdEM = saleInvoices.IdEM,
                     //BookingID = bookingServices.BookingID,
                     BookerName = bookingServices.BookerName,
@@ -77,21 +77,21 @@ namespace StoreAppPhase2.Services
 
 
         //-----------------Start Sale Interface
-        //Start Get Selling All
+        //Start Get Sale All
         public IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas()
         {
             return _context.SaleInvoices.ToList();
         }
-        //End Get Selling All
+        //End Get Sale All
     
-        //Start Get Selling
+        //Start Get Sale
         public IEnumerable<SaleInvoices> GetSaleInvoicesEMData(SaleInvoices saleInvoices)
         {
             return _context.SaleInvoices.Where(x=>x.SaleInvoiceID == saleInvoices.SaleInvoiceID);
         }
-        //End Get Selling
+        //End Get Sale
 
-        //Start Post Selling 
+        //Start Post Sale 
         public bool PostSaleInvoicesEMData(SaleInvoices saleInvoices)
         {
 
@@ -101,7 +101,7 @@ namespace StoreAppPhase2.Services
 
                 var SallingEMs = new SaleInvoices
                 {
-                    //SellingEMID = SellingEMID,          
+                    //SaleEMID = SaleEMID,          
                     //IdEM = saleInvoices.IdEM,
                     StatusSaleID = saleInvoices.StatusSaleID,
                     BookingID = saleInvoices.BookingID
@@ -126,16 +126,16 @@ namespace StoreAppPhase2.Services
             }
 
         }
-        //End Post Selling All
+        //End Post Sale All
 
 
-        //Start Delete Selling
+        //Start Delete Sale
         public IEnumerable<SaleInvoices> DeleteSaleInvoicesEMData(SaleInvoices saleInvoices)
         {
             // Create new entities from Entities
             using (_context)
             {
-                // Delete SellingEM
+                // Delete SaleEM
                 var del = _context.SaleInvoices.Where(o => o.SaleInvoiceID == saleInvoices.SaleInvoiceID).ToList();
 
                 if (del.Count() > 0)
@@ -152,9 +152,9 @@ namespace StoreAppPhase2.Services
                 return del;
             }
         }
-        //End Delete Selling
+        //End Delete Sale
 
-        //Start Update Selling
+        //Start Update Sale
         public bool PutSaleInvoicesEMData(SaleInvoices saleInvoice)
         {
 
@@ -179,9 +179,9 @@ namespace StoreAppPhase2.Services
                 return true;
             }
         }
-        //End Update Selling
+        //End Update Sale
 
-//-----------------End Selling Interface
+//-----------------End Sale Interface
 
 
 
