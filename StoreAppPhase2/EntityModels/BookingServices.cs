@@ -15,7 +15,7 @@ namespace StoreAppPhase2.EntityModels
         public DateTime BookingDate { get; set; }
      
         public int BookingPrices { get; set; }
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DueDate { get; set; }
 
         [ForeignKey("IdEM")]
