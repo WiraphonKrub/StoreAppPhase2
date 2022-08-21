@@ -11,9 +11,11 @@ namespace StoreAppPhase2.EntityModels
         public int BookingID { get; set; }
         [MaxLength(50)]
         public string? BookerName { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BookingDate { get; set; }
      
         public int BookingPrices { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DueDate { get; set; }
 
         [ForeignKey("IdEM")]

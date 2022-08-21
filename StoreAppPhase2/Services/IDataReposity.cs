@@ -9,7 +9,7 @@ namespace StoreAppPhase2.Services
 
         IEnumerable<EmployeesData> GetEmployees();
 
-        //Salling
+        //Sale
         IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas();
 
         IEnumerable<SaleInvoices> GetSaleInvoicesEMData(SaleInvoices saleInvoice);
@@ -19,6 +19,10 @@ namespace StoreAppPhase2.Services
         public bool PutSaleInvoicesEMData(SaleInvoices saleInvoice);
 
         public bool PostSaleInvoicesEMData(SaleInvoices saleInvoice);
+
+
+        //Booking
+        public bool PostBookingEMData(BookingServices bookingServices);
     }
 }
 

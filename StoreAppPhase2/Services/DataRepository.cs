@@ -3,6 +3,7 @@ using StoreAppPhase2.Entities;
 using StoreAppPhase2.DbContexts;
 using StoreAppPhase2.Services;
 using StoreAppPhase2.EntityModels;
+using Microsoft.VisualBasic;
 
 namespace StoreAppPhase2.Services
 {
@@ -27,10 +28,60 @@ namespace StoreAppPhase2.Services
         {
             return _context.EmployeesDatas.ToList();
         }
-//-----------------End Employees Interface
+        //-----------------End Employees Interface
 
 
-//-----------------Start Selling Interface
+
+
+
+        //-----------------Start Booking Interface
+        //Start Post Booking 
+        public bool PostBookingEMData(BookingServices bookingServices)
+        {
+
+            var BookingEMList = new List<BookingServices>();
+
+            try
+            {
+
+                var BookingEMs = new BookingServices
+                {
+                    //SellingEMID = SellingEMID,          
+                    //IdEM = saleInvoices.IdEM,
+                    //BookingID = bookingServices.BookingID,
+                    BookerName = bookingServices.BookerName,
+                    BookingDate = bookingServices.BookingDate,
+                    BookingPrices = bookingServices.BookingPrices,
+                    DueDate = bookingServices.DueDate,
+                    IdEM =  bookingServices.IdEM,
+                    StatusItemID = bookingServices.StatusItemID
+
+                };
+
+                BookingEMList.Add(BookingEMs);
+
+                _context.bookingServices.AddRange(BookingEMList);
+
+                _context.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                ex.Message.ToString();
+
+                return false;
+
+            }
+
+        }
+        //End Post Booking All
+
+        //-----------------End Booking Interface
+
+        //-----------------Start Sale Interface
 
         //Start Get Selling All
         public IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas()

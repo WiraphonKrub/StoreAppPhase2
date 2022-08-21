@@ -9,12 +9,12 @@ namespace StoreAppPhase2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SellingController : ControllerBase
+    public class SaleEMController : ControllerBase
     {
         private readonly IDataReposity _IDataRepository;
         private readonly IMapper _mapper;
 
-        public SellingController(IDataReposity IdataReposity, IMapper mapper)
+        public SaleEMController(IDataReposity IdataReposity, IMapper mapper)
         {
             _IDataRepository = IdataReposity ??
                 throw new ArgumentNullException(nameof(IdataReposity));
@@ -31,7 +31,7 @@ namespace StoreAppPhase2.Controllers
 
         }
 
-        [Route("Getsellingall")]
+        [Route("GetSaleInvoices")]
         [HttpGet()]
         public IActionResult GetSellingDatas()
         {
@@ -41,7 +41,7 @@ namespace StoreAppPhase2.Controllers
 
         }
 
-        [Route("GetSelling")]
+        [Route("GetSaleInvoice")]
         [HttpGet()]
         public IActionResult GetSellingData(SaleInvoices saleInvoices)
         {
@@ -49,7 +49,7 @@ namespace StoreAppPhase2.Controllers
             return Ok(SellingEM);
 
         }
-        [Route("DeleteSelling")]
+        [Route("DeleteSaleInvoice")]
         [HttpDelete()]
         public IActionResult DeleteSellingData(SaleInvoices saleInvoices)
         {
@@ -57,7 +57,7 @@ namespace StoreAppPhase2.Controllers
             return Ok(SellingEM);
 
         }
-        [Route("UpdateSelling")]
+        [Route("UpdateSaleInvoice")]
         [HttpPut()]
         public IActionResult PutSellingData(SaleInvoices saleInvoice)
         {
