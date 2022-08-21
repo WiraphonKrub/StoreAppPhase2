@@ -26,8 +26,8 @@ namespace StoreAppPhase2.Controllers
         public IActionResult PostSaleInvoicesData(SaleInvoices saleInvoice)
         {
             
-            var SellingEM = _IDataRepository.PostSaleInvoicesEMData(saleInvoice);
-            return Ok(SellingEM);
+            var SaleEM = _IDataRepository.PostSaleInvoicesEMData(saleInvoice);
+            return Ok(SaleEM);
 
         }
 
@@ -36,8 +36,8 @@ namespace StoreAppPhase2.Controllers
         public IActionResult GetSellingDatas()
         {
 
-            var SellingEMs = _IDataRepository.GetSaleInvoicesEMDatas();
-            return Ok(SellingEMs);
+            var SaleEMs = _IDataRepository.GetSaleInvoicesEMDatas();
+            return Ok(SaleEMs);
 
         }
 
@@ -45,24 +45,24 @@ namespace StoreAppPhase2.Controllers
         [HttpGet()]
         public IActionResult GetSellingData(SaleInvoices saleInvoices)
         {
-            var SellingEM = _IDataRepository.GetSaleInvoicesEMData(saleInvoices);
-            return Ok(SellingEM);
+            var SaleEM = _IDataRepository.GetSaleInvoicesEMData(saleInvoices);
+            return Ok(SaleEM);
 
         }
         [Route("DeleteSaleInvoice")]
         [HttpDelete()]
         public IActionResult DeleteSellingData(SaleInvoices saleInvoices)
         {
-            var SellingEM = _IDataRepository.DeleteSaleInvoicesEMData(saleInvoices);
-            return Ok(SellingEM);
+            var SaleEM = _IDataRepository.DeleteSaleInvoicesEMData(saleInvoices);
+            return Ok(SaleEM);
 
         }
         [Route("UpdateSaleInvoice")]
         [HttpPut()]
         public IActionResult PutSellingData(SaleInvoices saleInvoice)
         {
-            var SellingEM = _IDataRepository.PutSaleInvoicesEMData(saleInvoice);
-            return Ok(SellingEM);
+            var SaleEM = _IDataRepository.PutSaleInvoicesEMData(saleInvoice);
+            return Ok(SaleEM);
 
         }
 

@@ -31,8 +31,8 @@ namespace StoreAppPhase2.Controllers
         public IActionResult PostBookingEMData(BookingServices bookingServices)
         {
 
-            var SellingEM = _IDataRepository.PostBookingEMData(bookingServices);
-            return Ok(SellingEM);
+            var BookingServiceEM = _IDataRepository.PostBookingEMData(bookingServices);
+            return Ok(BookingServiceEM);
 
         }
 

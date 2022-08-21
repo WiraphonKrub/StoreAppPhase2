@@ -16,10 +16,10 @@ namespace StoreAppPhase2.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public EmployeesData GetEmployee(int employeeId, int officeId)
-        {
-            throw new NotImplementedException();
-        }
+        //public EmployeesData GetEmployee(int employeeId, int officeId)
+        //{
+        //    throw new NotImplementedException();
+        //}
         //-----------------Start Employees Interface
         public IEnumerable<EmployeesData> GetEmployees()
         {
@@ -103,7 +103,7 @@ namespace StoreAppPhase2.Services
                 {
                     //SellingEMID = SellingEMID,          
                     //IdEM = saleInvoices.IdEM,
-                    statusForSale = saleInvoices.statusForSale,
+                    StatusSaleID = saleInvoices.StatusSaleID,
                     BookingID = saleInvoices.BookingID
 
                 };
