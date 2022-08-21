@@ -20,18 +20,12 @@ namespace StoreAppPhase2.Services
         {
             throw new NotImplementedException();
         }
-
-
-
-//-----------------Start Employees Interface
+        //-----------------Start Employees Interface
         public IEnumerable<EmployeesData> GetEmployees()
         {
             return _context.EmployeesDatas.ToList();
         }
         //-----------------End Employees Interface
-
-
-
 
 
         //-----------------Start Booking Interface
@@ -81,8 +75,8 @@ namespace StoreAppPhase2.Services
 
         //-----------------End Booking Interface
 
-        //-----------------Start Sale Interface
 
+        //-----------------Start Sale Interface
         //Start Get Selling All
         public IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas()
         {
