@@ -24,7 +24,8 @@ namespace StoreAppPhase2.EntityModels
         public StatusItems? statusItems { get; set; }
         public int StatusItemID { get; set; }
 
-
+        public ICollection<SaleInvoices> saleInvoices { get; set; }
+          = new List<SaleInvoices>();
 
     }
 }

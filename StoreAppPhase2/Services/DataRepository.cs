@@ -57,9 +57,9 @@ namespace StoreAppPhase2.Services
                 var SellingEMs = new SaleInvoices
                 {
                     //SellingEMID = SellingEMID,
-                    InvoiceNo  = saleInvoices.InvoiceNo,
-                    IdEM = saleInvoices.IdEM,
-                    StatusItemID = saleInvoices.StatusItemID
+                  
+                    //IdEM = saleInvoices.IdEM,
+                    StatusSaleID = saleInvoices.StatusSaleID
                 };
 
             SellingEMList.Add(SellingEMs);
@@ -120,9 +120,9 @@ namespace StoreAppPhase2.Services
                 if (update.Count() > 0)
                 {
                     // Loop update
-                    update.ForEach(o => o.InvoiceNo = saleInvoice.InvoiceNo);
-                    update.ForEach(o => o.IdEM = saleInvoice.IdEM);
-                    update.ForEach(o => o.StatusItemID = saleInvoice.StatusItemID);
+                   
+                    //update.ForEach(o => o.IdEM = saleInvoice.IdEM);
+                    update.ForEach(o => o.StatusSaleID = saleInvoice.StatusSaleID);
                     _context.SaveChanges();
                 }
                 else

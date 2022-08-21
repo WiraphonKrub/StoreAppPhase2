@@ -9,19 +9,16 @@ namespace StoreAppPhase2.EntityModels
     {
         [Key]
         public int SaleInvoiceID { get; set; }
-        public int InvoiceNo { get; set; }
+  
 
-        [ForeignKey("StatusItemID")]
-        public StatusItems? statusItems { get; set; }
-        public int StatusItemID { get; set; }
+        [ForeignKey("StatusSaleID")]
+        public StatusForSale? statusForSale { get; set; }
+        public int StatusSaleID { get; set; }
 
-        [ForeignKey("IdEM")]
-        public EmployeesData? employeesData { get; set; }
-        public int IdEM { get; set; }
+        [ForeignKey("BookingID")]
+        public BookingServices? bookingServices { get; set; }
+        public int BookingID { get; set; }
 
-
-        public ICollection<BookingServices> BookingServices { get; set; }
-           = new List<BookingServices>();
     }
 }
 

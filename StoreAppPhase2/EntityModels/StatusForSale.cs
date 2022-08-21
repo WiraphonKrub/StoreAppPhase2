@@ -6,18 +6,18 @@ using StoreAppPhase2.EntityModels;
 
 namespace StoreAppPhase2.Entities;
 
-public class StatusItems
+public class StatusForSale
 {
 
     [Key]
-    public int StatusItemID { get; set; }
+    public int StatusSaleID { get; set; }
     [MaxLength(50)]
-    public string? StatusItemName { get; set; }
+    public string? StatusSaleName { get; set; }
 
 
- 
+    public ICollection<SaleInvoices> saleInvoices { get; set; }
+           = new List<SaleInvoices>();
 
 
-    public ICollection<BookingServices> BookingServices { get; set; }
-            = new List<BookingServices>();
+
 }

@@ -12,8 +12,8 @@ using StoreAppPhase2.DbContexts;
 namespace StoreAppPhase2.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220820102039_InitialUpdateBookingServices_02")]
-    partial class InitialUpdateBookingServices_02
+    [Migration("20220821022559_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,23 @@ namespace StoreAppPhase2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("StoreAppPhase2.Entities.StatusForSale", b =>
+                {
+                    b.Property<int>("StatusSaleID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusSaleID"), 1L, 1);
+
+                    b.Property<string>("StatusSaleName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("StatusSaleID");
+
+                    b.ToTable("StatusForSale");
+                });
 
             modelBuilder.Entity("StoreAppPhase2.Entities.StatusItems", b =>
                 {
@@ -65,17 +82,12 @@ namespace StoreAppPhase2.Migrations
                     b.Property<int>("IdEM")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SaleInvoicesSaleInvoiceID")
-                        .HasColumnType("int");
-
                     b.Property<int>("StatusItemID")
                         .HasColumnType("int");
 
                     b.HasKey("BookingID");
 
                     b.HasIndex("IdEM");
-
-                    b.HasIndex("SaleInvoicesSaleInvoiceID");
 
                     b.HasIndex("StatusItemID");
 
@@ -122,20 +134,17 @@ namespace StoreAppPhase2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SaleInvoiceID"), 1L, 1);
 
-                    b.Property<int>("IdEM")
+                    b.Property<int>("BookingID")
                         .HasColumnType("int");
 
-                    b.Property<int>("InvoiceNo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StatusItemID")
+                    b.Property<int>("StatusSaleID")
                         .HasColumnType("int");
 
                     b.HasKey("SaleInvoiceID");
 
-                    b.HasIndex("IdEM");
+                    b.HasIndex("BookingID");
 
-                    b.HasIndex("StatusItemID");
+                    b.HasIndex("StatusSaleID");
 
                     b.ToTable("SaleInvoices");
                 });
@@ -148,10 +157,6 @@ namespace StoreAppPhase2.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StoreAppPhase2.EntityModels.SaleInvoices", null)
-                        .WithMany("BookingServices")
-                        .HasForeignKey("SaleInvoicesSaleInvoiceID");
-
                     b.HasOne("StoreAppPhase2.Entities.StatusItems", "statusItems")
                         .WithMany("BookingServices")
                         .HasForeignKey("StatusItemID")
@@ -165,38 +170,39 @@ namespace StoreAppPhase2.Migrations
 
             modelBuilder.Entity("StoreAppPhase2.EntityModels.SaleInvoices", b =>
                 {
-                    b.HasOne("StoreAppPhase2.EntityModels.EmployeesData", "employeesData")
+                    b.HasOne("StoreAppPhase2.EntityModels.BookingServices", "bookingServices")
                         .WithMany("saleInvoices")
-                        .HasForeignKey("IdEM")
+                        .HasForeignKey("BookingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StoreAppPhase2.Entities.StatusItems", "statusItems")
+                    b.HasOne("StoreAppPhase2.Entities.StatusForSale", "statusForSale")
                         .WithMany("saleInvoices")
-                        .HasForeignKey("StatusItemID")
+                        .HasForeignKey("StatusSaleID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("employeesData");
+                    b.Navigation("bookingServices");
 
-                    b.Navigation("statusItems");
+                    b.Navigation("statusForSale");
+                });
+
+            modelBuilder.Entity("StoreAppPhase2.Entities.StatusForSale", b =>
+                {
+                    b.Navigation("saleInvoices");
                 });
 
             modelBuilder.Entity("StoreAppPhase2.Entities.StatusItems", b =>
                 {
                     b.Navigation("BookingServices");
+                });
 
+            modelBuilder.Entity("StoreAppPhase2.EntityModels.BookingServices", b =>
+                {
                     b.Navigation("saleInvoices");
                 });
 
             modelBuilder.Entity("StoreAppPhase2.EntityModels.EmployeesData", b =>
-                {
-                    b.Navigation("BookingServices");
-
-                    b.Navigation("saleInvoices");
-                });
-
-            modelBuilder.Entity("StoreAppPhase2.EntityModels.SaleInvoices", b =>
                 {
                     b.Navigation("BookingServices");
                 });
