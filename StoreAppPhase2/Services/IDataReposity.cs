@@ -10,15 +10,15 @@ namespace StoreAppPhase2.Services
         IEnumerable<EmployeesData> GetEmployees();
 
         //Salling
-        IEnumerable<SaleInvoices> GetSellingEMDatas();
+        IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas();
 
-        IEnumerable<SaleInvoices> GetSellingEMData(int SellingEMID);
+        IEnumerable<SaleInvoices> GetSaleInvoicesEMData(SaleInvoices saleInvoice);
 
-        IEnumerable<SaleInvoices> DeleteSellingEMData(int SellingEMID);
+        IEnumerable<SaleInvoices> DeleteSaleInvoicesEMData(SaleInvoices saleInvoice);
 
-        public bool PutSellingEMData(SaleInvoices saleInvoice);
+        public bool PutSaleInvoicesEMData(SaleInvoices saleInvoice);
 
-        public bool PostSellingEMData(SaleInvoices saleInvoice);
+        public bool PostSaleInvoicesEMData(SaleInvoices saleInvoice);
     }
 }
 

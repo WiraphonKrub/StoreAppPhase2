@@ -14,7 +14,15 @@ namespace StoreAppPhase2.DbContexts
 
         public DbSet<EmployeesData> EmployeesDatas { get; set; }
         public DbSet<SaleInvoices> SaleInvoices { get; set; }
+        public DbSet<BookingServices> bookingServices { get; set; }
+
+
+
+        //Status Table
         public DbSet<StatusItems> StatusItems { get; set; }
+        public DbSet<StatusForSale> statusForSales { get; set; }
+
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

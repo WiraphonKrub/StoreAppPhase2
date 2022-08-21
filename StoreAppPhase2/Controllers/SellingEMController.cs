@@ -21,12 +21,12 @@ namespace StoreAppPhase2.Controllers
             _mapper = mapper;
         }
 
-        [Route("InsertSelling")]
+        [Route("InsertSaleInvoices")]
         [HttpPost()]
-        public IActionResult PostSellingData(SaleInvoices saleInvoice)
+        public IActionResult PostSaleInvoicesData(SaleInvoices saleInvoice)
         {
             
-            var SellingEM = _IDataRepository.PostSellingEMData(saleInvoice);
+            var SellingEM = _IDataRepository.PostSaleInvoicesEMData(saleInvoice);
             return Ok(SellingEM);
 
         }
@@ -36,24 +36,24 @@ namespace StoreAppPhase2.Controllers
         public IActionResult GetSellingDatas()
         {
 
-            var SellingEMs = _IDataRepository.GetSellingEMDatas();
+            var SellingEMs = _IDataRepository.GetSaleInvoicesEMDatas();
             return Ok(SellingEMs);
 
         }
 
         [Route("GetSelling")]
         [HttpGet()]
-        public IActionResult GetSellingData(int SellingEMID)
+        public IActionResult GetSellingData(SaleInvoices saleInvoices)
         {
-            var SellingEM = _IDataRepository.GetSellingEMData(SellingEMID);
+            var SellingEM = _IDataRepository.GetSaleInvoicesEMData(saleInvoices);
             return Ok(SellingEM);
 
         }
         [Route("DeleteSelling")]
         [HttpDelete()]
-        public IActionResult DeleteSellingData(int SellingEMID)
+        public IActionResult DeleteSellingData(SaleInvoices saleInvoices)
         {
-            var SellingEM = _IDataRepository.DeleteSellingEMData(SellingEMID);
+            var SellingEM = _IDataRepository.DeleteSaleInvoicesEMData(saleInvoices);
             return Ok(SellingEM);
 
         }
@@ -61,7 +61,7 @@ namespace StoreAppPhase2.Controllers
         [HttpPut()]
         public IActionResult PutSellingData(SaleInvoices saleInvoice)
         {
-            var SellingEM = _IDataRepository.PutSellingEMData(saleInvoice);
+            var SellingEM = _IDataRepository.PutSaleInvoicesEMData(saleInvoice);
             return Ok(SellingEM);
 
         }
