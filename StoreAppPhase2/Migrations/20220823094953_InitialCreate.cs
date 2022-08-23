@@ -27,7 +27,7 @@ namespace StoreAppPhase2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StatusForSale",
+                name: "statusForSales",
                 columns: table => new
                 {
                     StatusSaleID = table.Column<int>(type: "int", nullable: false)
@@ -36,7 +36,7 @@ namespace StoreAppPhase2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StatusForSale", x => x.StatusSaleID);
+                    table.PrimaryKey("PK_statusForSales", x => x.StatusSaleID);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,7 +53,7 @@ namespace StoreAppPhase2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookingServices",
+                name: "bookingServices",
                 columns: table => new
                 {
                     BookingID = table.Column<int>(type: "int", nullable: false)
@@ -67,15 +67,15 @@ namespace StoreAppPhase2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookingServices", x => x.BookingID);
+                    table.PrimaryKey("PK_bookingServices", x => x.BookingID);
                     table.ForeignKey(
-                        name: "FK_BookingServices_EmployeesDatas_IdEM",
+                        name: "FK_bookingServices_EmployeesDatas_IdEM",
                         column: x => x.IdEM,
                         principalTable: "EmployeesDatas",
                         principalColumn: "IdEm",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookingServices_StatusItems_StatusItemID",
+                        name: "FK_bookingServices_StatusItems_StatusItemID",
                         column: x => x.StatusItemID,
                         principalTable: "StatusItems",
                         principalColumn: "StatusItemID",
@@ -95,27 +95,27 @@ namespace StoreAppPhase2.Migrations
                 {
                     table.PrimaryKey("PK_SaleInvoices", x => x.SaleInvoiceID);
                     table.ForeignKey(
-                        name: "FK_SaleInvoices_BookingServices_BookingID",
+                        name: "FK_SaleInvoices_bookingServices_BookingID",
                         column: x => x.BookingID,
-                        principalTable: "BookingServices",
+                        principalTable: "bookingServices",
                         principalColumn: "BookingID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SaleInvoices_StatusForSale_StatusSaleID",
+                        name: "FK_SaleInvoices_statusForSales_StatusSaleID",
                         column: x => x.StatusSaleID,
-                        principalTable: "StatusForSale",
+                        principalTable: "statusForSales",
                         principalColumn: "StatusSaleID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookingServices_IdEM",
-                table: "BookingServices",
+                name: "IX_bookingServices_IdEM",
+                table: "bookingServices",
                 column: "IdEM");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookingServices_StatusItemID",
-                table: "BookingServices",
+                name: "IX_bookingServices_StatusItemID",
+                table: "bookingServices",
                 column: "StatusItemID");
 
             migrationBuilder.CreateIndex(
@@ -135,10 +135,10 @@ namespace StoreAppPhase2.Migrations
                 name: "SaleInvoices");
 
             migrationBuilder.DropTable(
-                name: "BookingServices");
+                name: "bookingServices");
 
             migrationBuilder.DropTable(
-                name: "StatusForSale");
+                name: "statusForSales");
 
             migrationBuilder.DropTable(
                 name: "EmployeesDatas");

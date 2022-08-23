@@ -12,8 +12,8 @@ using StoreAppPhase2.DbContexts;
 namespace StoreAppPhase2.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220821041626_InitialAddBooking")]
-    partial class InitialAddBooking
+    [Migration("20220823094953_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
