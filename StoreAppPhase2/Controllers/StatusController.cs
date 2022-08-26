@@ -26,12 +26,12 @@ namespace StoreAppPhase2.Controllers
             _mapper = mapper;
         }
 
-        [Route("InsertStatus")]
+        [Route("InsertStatusForSale")]
         [HttpPost()]
-        public IActionResult PostStatusData(StatusItems statusItems)
+        public IActionResult PostStatusData(StatusForSale statusForSale)
         {
 
-            var statusItem = _IDataRepository.PostStatusData(statusItems);
+            var statusItem = _IDataRepository.PostStatusForsaleData(statusForSale);
             return Ok(statusItem);
 
         }

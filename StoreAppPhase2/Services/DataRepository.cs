@@ -16,10 +16,6 @@ namespace StoreAppPhase2.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        //public EmployeesData GetEmployee(int employeeId, int officeId)
-        //{
-        //    throw new NotImplementedException();
-        //}
         //-----------------Start Employees Interface
         public IEnumerable<EmployeesData> GetEmployees()
         {
@@ -50,6 +46,32 @@ namespace StoreAppPhase2.Services
                 _context.SaveChanges();
                 return true;
             }catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
+        public bool PostStatusForsaleData(StatusForSale statusForSale)
+        {
+
+            var StatusForSaleList = new List<StatusForSale>();
+
+            try
+            {
+                var addStatusForSale = new StatusForSale
+                {
+                    //SaleEMID = SaleEMID,          
+                    //IdEM = saleInvoices.IdEM,
+                    //BookingID = bookingServices.BookingID,
+                    StatusSaleName = statusForSale.StatusSaleName
+                };
+                StatusForSaleList.Add(addStatusForSale);
+                _context.statusForSales.AddRange(StatusForSaleList);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
             {
                 ex.Message.ToString();
                 return false;
