@@ -23,6 +23,11 @@ namespace StoreAppPhase2.Services
 
         //Booking
         public bool PostBookingEMData(BookingServices bookingServices);
+
+
+
+        //Status
+        public bool PostStatusData(StatusItems statusItems);
     }
 }
 

@@ -28,6 +28,38 @@ namespace StoreAppPhase2.Services
         //-----------------End Employees Interface
 
 
+
+        //-----------------Start Status Interface
+
+        public bool PostStatusData(StatusItems statusItems)
+        {
+
+            var statusItemsList = new List<StatusItems>();
+
+            try
+            {
+                var addStatus = new StatusItems
+                {
+                    //SaleEMID = SaleEMID,          
+                    //IdEM = saleInvoices.IdEM,
+                    //BookingID = bookingServices.BookingID,
+                    StatusItemName = statusItems.StatusItemName
+                };
+                statusItemsList.Add(addStatus);
+                _context.StatusItems.AddRange(statusItemsList);
+                _context.SaveChanges();
+                return true;
+            }catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
+        //-----------------End Status Interface
+
+
+
         //-----------------Start Booking Interface
         //Start Post Booking 
         public bool PostBookingEMData(BookingServices bookingServices)
