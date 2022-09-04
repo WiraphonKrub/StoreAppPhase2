@@ -55,7 +55,7 @@ namespace StoreAppPhase2.Controllers
                 return Ok(ex.Message.ToString());
             }
 
-            return null;
+          
 
         }
 
