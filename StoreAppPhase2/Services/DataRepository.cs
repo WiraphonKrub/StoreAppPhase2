@@ -27,7 +27,29 @@ namespace StoreAppPhase2.Services
 
 
         //-----------------Start Status Interface
+        //Start Delete Sale
+        public IEnumerable<StatusItems> DeleteStatusData(StatusItems[] statusItems)
+        {
+            // Create new entities from Entities
+            using (_context)
+            {
+                // Delete SaleEM
+                var del = _context.StatusItems.Where(o => o.StatusItemID == statusItems[0].StatusItemID).ToList();
 
+                if (del.Count() > 0)
+                {
+                    // Loop Delete
+                    foreach (var item in del)
+                    {
+                        _context.StatusItems.Remove(item);
+                    }
+                    _context.SaveChanges();
+                }
+                else
+                { return del; }
+                return del;
+            }
+        }
         public bool PostStatusData(StatusItems[] statusItems)
         {
              
