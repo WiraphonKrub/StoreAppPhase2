@@ -37,11 +37,25 @@ namespace StoreAppPhase2.Controllers
         }
         [Route("InsertStatusItems")]
         [HttpPost()]
-        public IActionResult PostStatusItemsData(StatusItems statusItems)
+        public IActionResult PostStatusItemsData(StatusItems[] statusItems)
         {
+          
+            try {
+               
+                    var statusItem = _IDataRepository.PostStatusData(statusItems);
+                    return Ok(statusItem);
 
-            var statusItem = _IDataRepository.PostStatusData(statusItems);
-            return Ok(statusItem);
+                
+
+            }
+            catch(Exception ex) {
+
+            
+
+                return Ok(ex.Message.ToString());
+            }
+
+            return null;
 
         }
 

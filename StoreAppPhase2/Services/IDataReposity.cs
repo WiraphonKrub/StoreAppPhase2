@@ -27,7 +27,7 @@ namespace StoreAppPhase2.Services
 
 
         //Status
-        public bool PostStatusData(StatusItems statusItems);
+        public bool PostStatusData(StatusItems[] statusItems);
         public bool PostStatusForsaleData(StatusForSale statusForSale);
         
     }

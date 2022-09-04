@@ -4,6 +4,7 @@ using StoreAppPhase2.DbContexts;
 using StoreAppPhase2.Services;
 using StoreAppPhase2.EntityModels;
 using Microsoft.VisualBasic;
+using System.Linq;
 
 namespace StoreAppPhase2.Services
 {
@@ -27,21 +28,29 @@ namespace StoreAppPhase2.Services
 
         //-----------------Start Status Interface
 
-        public bool PostStatusData(StatusItems statusItems)
+        public bool PostStatusData(StatusItems[] statusItems)
         {
-
+             
             var statusItemsList = new List<StatusItems>();
-
+            var addStatus = new StatusItems();
             try
             {
-                var addStatus = new StatusItems
-                {
-                    //SaleEMID = SaleEMID,          
-                    //IdEM = saleInvoices.IdEM,
-                    //BookingID = bookingServices.BookingID,
-                    StatusItemName = statusItems.StatusItemName
-                };
-                statusItemsList.Add(addStatus);
+                for (int i = 0;i < statusItems.Count();i++ ) {
+
+
+                    addStatus = new StatusItems
+                    {
+                        //SaleEMID = SaleEMID,          
+                        //IdEM = saleInvoices.IdEM,
+                        //BookingID = bookingServices.BookingID,
+                        StatusItemName = statusItems[i].StatusItemName
+                    };
+
+
+                    statusItemsList.Add(addStatus);
+                } 
+
+               
                 _context.StatusItems.AddRange(statusItemsList);
                 _context.SaveChanges();
                 return true;
