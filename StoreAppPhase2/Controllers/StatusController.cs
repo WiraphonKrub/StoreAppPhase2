@@ -71,8 +71,19 @@ namespace StoreAppPhase2.Controllers
         [HttpDelete()]
         public IActionResult DeleteStatusItemData(StatusItems[] statusItems)
         {
-            var SaleEM = _IDataRepository.DeleteStatusData(statusItems);
-            return Ok(SaleEM);
+            try
+            {
+                var statusItem = _IDataRepository.DeleteStatusData(statusItems);
+                return Ok(statusItem);
+
+            }
+            catch (Exception ex)
+            {
+
+
+
+                return Ok(ex.Message.ToString());
+            }
 
         }
 
