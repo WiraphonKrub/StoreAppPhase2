@@ -25,45 +25,46 @@ namespace StoreAppPhase2.Controllers
         [HttpPost()]
         public IActionResult PostSaleInvoicesData(SaleInvoices saleInvoice)
         {
-            
-            var SaleEM = _IDataRepository.PostSaleInvoicesEMData(saleInvoice);
-            return Ok(SaleEM);
 
+          try{var SaleEM = _IDataRepository.PostSaleInvoicesEMData(saleInvoice);return Ok(SaleEM);}
+          catch (Exception ex)
+          {return Ok(ex.Message.ToString());}
         }
 
         [Route("GetSaleInvoices")]
         [HttpGet()]
         public IActionResult GetSellingDatas()
         {
-
-            var SaleEMs = _IDataRepository.GetSaleInvoicesEMDatas();
-            return Ok(SaleEMs);
-
+            try{var SaleEMs = _IDataRepository.GetSaleInvoicesEMDatas();return Ok(SaleEMs);}
+            catch (Exception ex)
+            { return Ok(ex.Message.ToString()); }
         }
 
         [Route("GetSaleInvoice")]
         [HttpGet()]
         public IActionResult GetSellingData(SaleInvoices saleInvoices)
         {
-            var SaleEM = _IDataRepository.GetSaleInvoicesEMData(saleInvoices);
-            return Ok(SaleEM);
+          try{var SaleEM = _IDataRepository.GetSaleInvoicesEMData(saleInvoices);return Ok(SaleEM);}
+          catch (Exception ex)
+          {return Ok(ex.Message.ToString());}
 
         }
         [Route("DeleteSaleInvoice")]
         [HttpDelete()]
         public IActionResult DeleteSellingData(SaleInvoices saleInvoices)
         {
-            var SaleEM = _IDataRepository.DeleteSaleInvoicesEMData(saleInvoices);
-            return Ok(SaleEM);
+            try{var SaleEM = _IDataRepository.DeleteSaleInvoicesEMData(saleInvoices);return Ok(SaleEM);}
+            catch (Exception ex)
+            {return Ok(ex.Message.ToString());}
 
         }
         [Route("UpdateSaleInvoice")]
         [HttpPut()]
         public IActionResult PutSellingData(SaleInvoices saleInvoice)
         {
-            var SaleEM = _IDataRepository.PutSaleInvoicesEMData(saleInvoice);
-            return Ok(SaleEM);
-
+            try { var SaleEM = _IDataRepository.PutSaleInvoicesEMData(saleInvoice); return Ok(SaleEM);}
+            catch (Exception ex)
+            { return Ok(ex.Message.ToString()); }
         }
 
 

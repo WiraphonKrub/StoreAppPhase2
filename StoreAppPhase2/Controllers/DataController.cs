@@ -23,9 +23,9 @@ namespace StoreAppPhase2.Controllers
         [HttpGet()]
         public IActionResult GetEmployees()
         {
-            var employee = _IDataRepository.GetEmployees();
-            return Ok(employee);
-
+            try{var employee = _IDataRepository.GetEmployees();return Ok(employee);}
+            catch (Exception ex)
+            { return Ok(ex.Message.ToString()); }
         }
     }
 

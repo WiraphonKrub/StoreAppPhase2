@@ -30,10 +30,9 @@ namespace StoreAppPhase2.Controllers
         [HttpPost()]
         public IActionResult PostBookingEMData(BookingServices bookingServices)
         {
-
-            var BookingServiceEM = _IDataRepository.PostBookingEMData(bookingServices);
-            return Ok(BookingServiceEM);
-
+            try{var BookingServiceEM = _IDataRepository.PostBookingEMData(bookingServices);return Ok(BookingServiceEM);}
+            catch (Exception ex)
+            { return Ok(ex.Message.ToString());}
         }
 
 
