@@ -33,21 +33,24 @@ namespace StoreAppPhase2.Services
             // Create new entities from Entities
             using (_context)
             {
-                // Delete SaleEM
-                var del = _context.StatusItems.Where(o => o.StatusItemID == statusItems[0].StatusItemID).ToList();
-
-                if (del.Count() > 0)
+                // Delete status
+                for (int i = 0; i < statusItems.Count(); i++)
                 {
-                    // Loop Delete
-                    foreach (var item in del)
+                    var del = _context.StatusItems.Where(o => o.StatusItemID == statusItems[i].StatusItemID).ToList();
+
+                    if (del.Count() > 0)
                     {
-                        _context.StatusItems.Remove(item);
+                        // Loop Delete
+                        foreach (var item in del)
+                        {
+                            _context.StatusItems.Remove(item);
+                        }
+                        _context.SaveChanges();
                     }
-                    _context.SaveChanges();
+                    else
+                    { return del; }
                 }
-                else
-                { return del; }
-                return del;
+                return null;
             }
         }
         public bool PostStatusData(StatusItems[] statusItems)

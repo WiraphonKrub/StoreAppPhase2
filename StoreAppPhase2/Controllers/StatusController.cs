@@ -30,9 +30,19 @@ namespace StoreAppPhase2.Controllers
         [HttpPost()]
         public IActionResult PostStatusForsaleData(StatusForSale statusForSale)
         {
+            try
+            {
 
-            var statusItem = _IDataRepository.PostStatusForsaleData(statusForSale);
+                var statusItem = _IDataRepository.PostStatusForsaleData(statusForSale);
             return Ok(statusItem);
+            }
+            catch (Exception ex)
+            {
+
+
+
+                return Ok(ex.Message.ToString());
+            }
 
         }
         [Route("InsertStatusItems")]
@@ -55,11 +65,16 @@ namespace StoreAppPhase2.Controllers
                 return Ok(ex.Message.ToString());
             }
 
-          
-
         }
 
+        [Route("DeleteStatusItem")]
+        [HttpDelete()]
+        public IActionResult DeleteStatusItemData(StatusItems[] statusItems)
+        {
+            var SaleEM = _IDataRepository.DeleteStatusData(statusItems);
+            return Ok(SaleEM);
 
+        }
 
     }
 }
