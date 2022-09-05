@@ -30,19 +30,9 @@ namespace StoreAppPhase2.Controllers
         [HttpPost()]
         public IActionResult PostStatusForsaleData(StatusForSale statusForSale)
         {
-            try
-            {
-
-                var statusItem = _IDataRepository.PostStatusForsaleData(statusForSale);
-            return Ok(statusItem);
-            }
+            try{var statusItem = _IDataRepository.PostStatusForsaleData(statusForSale);return Ok(statusItem);}
             catch (Exception ex)
-            {
-
-
-
-                return Ok(ex.Message.ToString());
-            }
+            {return Ok(ex.Message.ToString());}
 
         }
         [Route("InsertStatusItems")]
@@ -50,20 +40,9 @@ namespace StoreAppPhase2.Controllers
         public IActionResult PostStatusItemsData(StatusItems[] statusItems)
         {
           
-            try {
-               
-                    var statusItem = _IDataRepository.PostStatusData(statusItems);
-                    return Ok(statusItem);
-
-                
-
-            }
-            catch(Exception ex) {
-
-            
-
-                return Ok(ex.Message.ToString());
-            }
+            try {var statusItem = _IDataRepository.PostStatusData(statusItems);return Ok(statusItem);}
+            catch(Exception ex)
+            {return Ok(ex.Message.ToString());}
 
         }
 
@@ -71,19 +50,9 @@ namespace StoreAppPhase2.Controllers
         [HttpDelete()]
         public IActionResult DeleteStatusItemData(StatusItems[] statusItems)
         {
-            try
-            {
-                var statusItem = _IDataRepository.DeleteStatusData(statusItems);
-                return Ok(statusItem);
-
-            }
+            try{var statusItem = _IDataRepository.DeleteStatusData(statusItems);return Ok(statusItem);}
             catch (Exception ex)
-            {
-
-
-
-                return Ok(ex.Message.ToString());
-            }
+            {return Ok(ex.Message.ToString());}
 
         }
 
