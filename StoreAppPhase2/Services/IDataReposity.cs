@@ -27,6 +27,7 @@ namespace StoreAppPhase2.Services
 
 
         //Status
+        IEnumerable<StatusItems> GetStatusItems();
         public bool PostStatusData(StatusItems[] statusItems);
         public bool PostStatusForsaleData(StatusForSale statusForSale);
         IEnumerable<StatusItems> DeleteStatusData(StatusItems[] statusItems);

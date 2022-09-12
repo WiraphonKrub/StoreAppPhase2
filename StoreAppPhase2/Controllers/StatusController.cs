@@ -25,7 +25,15 @@ namespace StoreAppPhase2.Controllers
                 throw new ArgumentNullException(nameof(IdataReposity));
             _mapper = mapper;
         }
+        [Route("GetStatus")]
+        [HttpGet()]
+        public IActionResult GetStatusForsaleDatas()
+        {
+            try { var statusItem = _IDataRepository.GetStatusItems(); return Ok(statusItem); }
+            catch (Exception ex)
+            { return Ok(ex.Message.ToString()); }
 
+        }
         [Route("InsertStatusForSale")]
         [HttpPost()]
         public IActionResult PostStatusForsaleData(StatusForSale statusForSale)

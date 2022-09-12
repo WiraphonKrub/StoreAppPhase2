@@ -27,7 +27,15 @@ namespace StoreAppPhase2.Services
 
 
         //-----------------Start Status Interface
-        //Start Delete Sale
+
+        //Start Get Status
+        public IEnumerable<StatusItems> GetStatusItems()
+        {
+            return _context.StatusItems.ToList();
+        }
+        //End Get Status
+
+        //Start Delete Status
         public IEnumerable<StatusItems> DeleteStatusData(StatusItems[] statusItems)
         {
             // Create new entities from Entities
