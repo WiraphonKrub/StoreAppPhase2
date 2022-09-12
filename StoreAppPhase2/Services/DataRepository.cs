@@ -22,6 +22,47 @@ namespace StoreAppPhase2.Services
         {
             return _context.EmployeesDatas.ToList();
         }
+
+
+        public bool PostEmployeeData(EmployeesData[] employeesDatas)
+        {
+
+            var EmployeesDataList = new List<EmployeesData>();
+            var addEmployeesData = new EmployeesData();
+            try
+            {
+                for (int i = 0; i < employeesDatas.Count(); i++)
+                {
+
+
+                    addEmployeesData = new EmployeesData
+                    {
+                        //SaleEMID = SaleEMID,          
+                        //IdEM = saleInvoices.IdEM,
+                        //BookingID = bookingServices.BookingID,
+                        FirstNameEm = employeesDatas[i].FirstNameEm,
+                        LastNameEm = employeesDatas[i].LastNameEm,
+                            AddressEm = employeesDatas[i].AddressEm,
+                         RangeWorkingEm = employeesDatas[i].RangeWorkingEm,
+                         SalaryEm = employeesDatas[i].SalaryEm
+                    };
+
+
+                    EmployeesDataList.Add(addEmployeesData);
+                }
+
+
+                _context.EmployeesDatas.AddRange(EmployeesDataList);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
+        }
+
         //-----------------End Employees Interface
 
 

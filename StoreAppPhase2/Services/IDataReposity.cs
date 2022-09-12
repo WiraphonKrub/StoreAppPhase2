@@ -7,7 +7,7 @@ namespace StoreAppPhase2.Services
 	public interface IDataReposity
 	{
 
-        IEnumerable<EmployeesData> GetEmployees();
+        
 
         //Sale
         IEnumerable<SaleInvoices> GetSaleInvoicesEMDatas();
@@ -24,7 +24,9 @@ namespace StoreAppPhase2.Services
         //Booking
         public bool PostBookingEMData(BookingServices bookingServices);
 
-
+        //Employee
+        IEnumerable<EmployeesData> GetEmployees();
+        public bool PostEmployeeData(EmployeesData[] employeesDatas);
 
         //Status
         IEnumerable<StatusItems> GetStatusItems();
